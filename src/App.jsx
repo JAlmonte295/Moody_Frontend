@@ -1,11 +1,18 @@
+import { Routes, Route } from 'react-router';
+
 import NavBar from './components/NavBar/NavBar';
 
+import Dashboard from './components/Dashboard/Dashboard.jsx';
+import SignUpForm from './components/SignUpForm/SignUpForm';
+
 const App = () => {
-  
   return (
     <>
       <NavBar />
-      <h1>Hello, friend!</h1>
+      <Routes>
+        <Route path='/' element={<Dashboard />} />
+        <Route path='/sign-up' element={<SignUpForm />} />
+      </Routes>
     </>
   );
 };
