@@ -7,6 +7,7 @@ import SignInForm from './components/SignInForm/SignInForm';
 
 import Dashboard from './components/Dashboard/Dashboard.jsx';
 import Landing from './components/Landing/Landing';
+import MoodList from './components/MoodList/MoodList.jsx';
 
 import { UserContext } from './contexts/UserContext';
 
@@ -17,8 +18,16 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route path='/' element={user ? <Dashboard /> : <Landing />} />
+        {user ? (
+          <>
+          <Route path='/moods' element={<MoodList />} />
+          </>
+        ) : (
+          <>
         <Route path='/sign-up' element={<SignUpForm />} />
         <Route path='/sign-in' element={<SignInForm />} />
+        </>
+        )}
       </Routes>
     </>
   );
