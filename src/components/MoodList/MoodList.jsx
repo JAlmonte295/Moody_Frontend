@@ -14,7 +14,7 @@ const MoodList = (props) => {
           <p>{mood.description}</p>
           <p>
             {`${mood.author.username} posted on
-            ${new Date(mood.createdAt)}`}
+            ${new Date(mood.createdAt).toLocaleDateString()}`}
           </p>
         </article>
       </Link>
