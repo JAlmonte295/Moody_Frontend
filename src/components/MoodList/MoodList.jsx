@@ -28,7 +28,7 @@ const MoodList = ({ moods = [] }) => {
               <p>{mood.description}</p>
               <p>
                 {`${mood.author.username} posted on ${new Date(
-                  mood.createdAt
+                  mood.dateRecorded
                 ).toLocaleDateString()}`}
               </p>
             </article>
