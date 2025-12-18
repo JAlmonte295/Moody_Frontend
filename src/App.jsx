@@ -10,6 +10,8 @@ import Landing from './components/Landing/Landing';
 
 import * as moodService from './services/moodService.js';
 import MoodList from './components/MoodList/MoodList.jsx';
+import MoodDetails from './components/MoodDetails/MoodDetails.jsx';
+
 
 import { UserContext } from './contexts/UserContext';
 
@@ -32,6 +34,7 @@ const App = () => {
         {user ? (
           <>
           <Route path='/moods' element={<MoodList moods={moods}/>} />
+          <Route path='/moods/:moodId' element={<MoodDetails />} />
           </>
         ) : (
           <>
