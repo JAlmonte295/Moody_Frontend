@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./NewMood.module.scss";
+import * as moodService from "../../services/moodService";
 
 const NewMood = () => {
   const navigate = useNavigate();
@@ -27,23 +28,10 @@ const NewMood = () => {
     setError(null);
 
     try {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        throw new Error("Authentication required. Please sign in.");
-      }
+      const newMood = await moodService.create(formData);
 
-      const response = await fetch("http://localhost:3000/moods", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to create mood");
+      if (newMood.error) {
+        throw new Error(newMood.error);
       }
 
       navigate("/");
