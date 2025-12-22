@@ -41,7 +41,7 @@ const NavBar = () => {
       )}
       <div className={styles.logo}>
         <Link to={user ? "/moods" : "/"}>
-          <img src="/src/assets/images/Moody_logo.png" alt="Moody Logo" />
+          <img src="/images/Moody_logo.png" alt="Moody Logo" />
         </Link>
       </div>
     </nav>
