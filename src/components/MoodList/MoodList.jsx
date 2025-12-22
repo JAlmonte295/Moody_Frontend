@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import styles from "./MoodList.module.scss";
 import { UserContext } from "../../contexts/UserContext";
 import * as moodService from "../../services/moodService";
-import styles from './MoodList.module.scss';
 
 const MoodList = () => {
   const [moods, setMoods] = useState([]);
@@ -23,7 +22,7 @@ const MoodList = () => {
   }, []);
 
    return (
-    <main className={styles.container}>
+    <main className={styles.moodList}>
       <header className={styles.header}>
         <h1>Your moods, in one place.</h1>
         <hr />
